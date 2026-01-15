@@ -19,6 +19,8 @@ Includes:
 # =======================
 from sorting.bubble_sort import bubble_sort # Import Bubble Sort implementation from sorting module
 from sorting.insertion_sort import insertion_sort # Import Insertion sort implementation
+from sorting.selection_sort import selection_sort  # Import Selection sort implementation
+from sorting.merge_sort import merge_sort # Import Merge sort implementation
 import csv                # Used to read/write CSV files for benchmark data
 import random             # Used to generate random integers for sorting and pivots if needed
 import time               # Used to measure performance timing of algorithms
@@ -31,39 +33,6 @@ sys.setrecursionlimit(20000)  # Raise recursion depth limit for large recursive 
 # =======================
 # Sorting Algorithms 
 # =======================
-
-def selection_sort(a: List[int]) -> List[int]:  # Define Selection Sort function
-    arr = list(a)                               # Copy input
-    n = len(arr)                                # Cache length
-    for i in range(n):                          # Position where we will place the next minimum
-        min_idx = i                             # Assume current index holds the minimum
-        for j in range(i + 1, n):               # Scan the remainder of the array
-            if arr[j] < arr[min_idx]:           # If a smaller element is found
-                min_idx = j                     # Update index of minimum
-        arr[i], arr[min_idx] = arr[min_idx], arr[i]  # Swap min element into correct position
-    return arr                                  # Return sorted array
-
-
-def merge_sort(a: List[int]) -> List[int]:      # Define Merge Sort (divide and conquer)
-    arr = list(a)                               # Copy input list
-    if len(arr) <= 1:                           # Base case: 0 or 1 element is already sorted
-        return arr                              # Return as-is
-    mid = len(arr) // 2                         # Compute midpoint
-    left = merge_sort(arr[:mid])                # Recursively sort left half
-    right = merge_sort(arr[mid:])               # Recursively sort right half
-    result = []                                 # Prepare output buffer
-    i = j = 0                                   # Pointers for left and right lists
-    while i < len(left) and j < len(right):     # Merge until one side is exhausted
-        if left[i] < right[j]:                  # If left item is smaller
-            result.append(left[i])              # Append left item
-            i += 1                              # Advance left pointer
-        else:                                   # Otherwise right item is smaller or equal
-            result.append(right[j])             # Append right item
-            j += 1                              # Advance right pointer
-    result.extend(left[i:])                     # Append remaining left items
-    result.extend(right[j:])                    # Append remaining right items
-    return result                               # Return merged sorted list
-
 
 def quick_sort(a: List[int]) -> List[int]:      # Define Quick Sort (functional style)
     arr = list(a)                               # Copy input
