@@ -17,6 +17,7 @@ Includes:
 # =======================
 # Imports
 # =======================
+from sorting.bubble_sort import bubble_sort # Import Bubble Sort implementation from sorting module
 import csv                # Used to read/write CSV files for benchmark data
 import random             # Used to generate random integers for sorting and pivots if needed
 import time               # Used to measure performance timing of algorithms
@@ -30,18 +31,7 @@ sys.setrecursionlimit(20000)  # Raise recursion depth limit for large recursive 
 # Sorting Algorithms 
 # =======================
 
-def bubble_sort(a: List[int]) -> List[int]:  # Bubble Sort function 
-    arr = list(a)                            # Copy input list to avoid mutating caller data
-    n = len(arr)                             # Cache length for reuse
-    for i in range(n):                       # Outer pass runs n times (worst-case)
-        swapped = False                      # Track whether any swap occurs in this pass
-        for j in range(0, n - i - 1):        # Inner pass compares adjacent pairs up to unsorted boundary
-            if arr[j] > arr[j + 1]:          # If current element is greater than next element
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]  # Swap the elements
-                swapped = True               # Mark that a swap occurred
-        if not swapped:                      # If no swaps happened in this pass
-            break                            # Array is sorted; exit early optimization
-    return arr                               # Return the sorted array
+
 
 
 def insertion_sort(a: List[int]) -> List[int]:  # Define Insertion Sort function
