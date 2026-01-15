@@ -11,7 +11,7 @@ Includes:
 - Benchmarking best/average/worst cases
 - Handles very large inputs 
 - Saves benchmark results & Big-O CSV tables
-- Custom or0iginal algorithm: eddiesalgorithm_sort 
+- Custom original algorithm: eddiesalgorithm_sort 
 """
 
 # =======================
