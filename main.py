@@ -18,6 +18,7 @@ Includes:
 # Imports
 # =======================
 from sorting.bubble_sort import bubble_sort # Import Bubble Sort implementation from sorting module
+from sorting.insertion_sort import insertion_sort # Import Insertion sort implementation
 import csv                # Used to read/write CSV files for benchmark data
 import random             # Used to generate random integers for sorting and pivots if needed
 import time               # Used to measure performance timing of algorithms
@@ -30,21 +31,6 @@ sys.setrecursionlimit(20000)  # Raise recursion depth limit for large recursive 
 # =======================
 # Sorting Algorithms 
 # =======================
-
-
-
-
-def insertion_sort(a: List[int]) -> List[int]:  # Define Insertion Sort function
-    arr = list(a)                               # Copy input list
-    for i in range(1, len(arr)):                # Iterate from the second element to the end
-        key = arr[i]                            # Value to insert into the sorted prefix
-        j = i - 1                               # Start comparing from the previous element
-        while j >= 0 and arr[j] > key:          # While elements to the left are greater than key
-            arr[j + 1] = arr[j]                 # Shift larger element one position to the right
-            j -= 1                              # Move leftward
-        arr[j + 1] = key                        # Insert key into the correct position
-    return arr                                  # Return sorted array
-
 
 def selection_sort(a: List[int]) -> List[int]:  # Define Selection Sort function
     arr = list(a)                               # Copy input
